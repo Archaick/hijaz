@@ -1,6 +1,7 @@
 export default function Home() {
   return (
     <main className="page">
+
       <section className="hero">
         <p className="eyebrow">Next.js + JavaScript</p>
         <h1>We have a clean Next.js app running.</h1>
