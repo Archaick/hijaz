@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "programs": "Program",
+    "community": "Komunitas",
+    "about": "Tentang Kami",
+    "donate": "Dukung Kami",
+    "stats": "Dampak"
+  },
+  "hero": {
+    "eyebrow": "Markaz Al Hijaz",
+    "headline": "Sanctuary Modern untuk Ilmu Islam",
+    "subtext": "Didedikasikan untuk pelestarian warisan Islam dan pencapaian keunggulan kontemporer — berlandaskan keilmuan yang otentik.",
+    "cta_primary": "Jelajahi Program",
+    "cta_secondary": "Pelajari Lebih"
+  },
+  "features": {
+    "eyebrow": "Fondasi Kami",
+    "headline": "Jembatan antara Warisan dan Modernitas",
+    "subtext": "Markaz Al Hijaz hadir sebagai mercusuar bagi mereka yang mencari koneksi mendalam dengan ilmu-ilmu Islam di tengah kompleksitas abad ke-21.",
+    "pillar1_title": "Silsilah Keilmuan yang Otentik",
+    "pillar1_desc": "Ilmu yang diturunkan melalui rantai periwayatan, memastikan kemurnian pemikiran dan kesinambungan tradisi keilmuan.",
+    "pillar2_title": "Ketelitian Intelektual",
+    "pillar2_desc": "Berinteraksi dengan filsafat modern dan ilmu sosial melalui lensa tradisional, membentuk ilmuwan yang utuh dan berimbang."
+  },
+  "programs": {
+    "eyebrow": "Jalur Pendidikan",
+    "headline": "Kurikulum Beragam untuk Pencari Ilmu Seumur Hidup",
+    "subtext": "Dari bahasa Arab dasar hingga kajian teologi lanjutan — sebuah perjalanan ilmu yang lengkap.",
+    "p1_title": "Bahasa Arab & Pemahaman Al-Quran",
+    "p1_desc": "Perjalanan empat tahun yang komprehensif ke dalam mukjizat linguistik Al-Quran, memadukan tata bahasa klasik dengan pedagogi modern.",
+    "p1_cta": "Pelajari Lebih",
+    "p2_title": "Halaqah Komunitas",
+    "p2_desc": "Pertemuan mingguan untuk pertumbuhan spiritual, persaudaraan, dan bimbingan dalam lingkungan yang santai dan hangat.",
+    "p2_cta": "Bergabung",
+    "p3_title": "Platform Digital",
+    "p3_desc": "Akses sesuai permintaan ke seluruh perpustakaan kuliah dan kursus terstruktur kami dari mana saja di dunia.",
+    "p3_cta": "Masuk Portal",
+    "p4_title": "Bimbingan Global",
+    "p4_desc": "Terhubung dengan para ulama dan profesional akademik terkemuka untuk panduan personal dalam perjalanan pendidikan Anda.",
+    "p4_cta": "Daftar Sekarang"
+  },
+  "donate": {
+    "eyebrow": "Dukung Misi Kami",
+    "headline": "Lestarikan Ilmu Sakral untuk Generasi Mendatang",
+    "subtext": "Kontribusi Anda membantu kami menyediakan beasiswa, mengembangkan infrastruktur digital, dan memastikan pendidikan Islam yang otentik tetap dapat diakses oleh semua.",
+    "cta": "Donasi Sekarang"
+  },
+  "stats": {
+    "masjids": "Masjid Dibangun",
+    "students": "Siswa Terdaftar",
+    "courses": "Kursus Pendidikan"
+  },
+  "footer": {
+    "tagline": "Sanctuary modern yang didedikasikan untuk pelestarian warisan Islam melalui keilmuan otentik dan keunggulan kontemporer.",
+    "quick_links": "Tautan Cepat",
+    "contact": "Kontak & Media Sosial",
+    "address": "Hijaz Square, Kota Ilmu, Indonesia",
+    "email": "contact@markazalhijaz.org",
+    "copyright": "© 2024 Markaz Al Hijaz. Melestarikan Warisan, Menginspirasi Masa Depan.",
+    "link_programs": "Program",
+    "link_community": "Komunitas",
+    "link_about": "Tentang Kami",
+    "link_donate": "Dukung Misi Kami"
+  }
+}

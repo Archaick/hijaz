@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "programs": "Programs",
+    "community": "Community",
+    "about": "About",
+    "donate": "Support Us",
+    "stats": "Impact"
+  },
+  "hero": {
+    "eyebrow": "Markaz Al Hijaz",
+    "headline": "A Modern Sanctuary for Islamic Knowledge",
+    "subtext": "Dedicated to the preservation of Islamic heritage and the pursuit of contemporary excellence — rooted in authentic scholarship.",
+    "cta_primary": "Explore Programs",
+    "cta_secondary": "Learn More"
+  },
+  "features": {
+    "eyebrow": "Our Foundation",
+    "headline": "A Bridge Between Heritage and Modernity",
+    "subtext": "Markaz Al Hijaz stands as a beacon for those seeking a profound connection to the Islamic sciences while navigating the complexities of the 21st century.",
+    "pillar1_title": "Authentic Lineage",
+    "pillar1_desc": "Knowledge passed down through chains of transmission, ensuring purity of thought and continuity of scholarship.",
+    "pillar2_title": "Intellectual Rigor",
+    "pillar2_desc": "Engaging with modern philosophy and social sciences through a traditional lens, cultivating well-rounded scholars."
+  },
+  "programs": {
+    "eyebrow": "Educational Pathways",
+    "headline": "Diverse Curriculum for the Lifelong Learner",
+    "subtext": "From foundational Arabic to advanced theological inquiry — a complete journey of knowledge.",
+    "p1_title": "Arabic Language & Quranic Understanding",
+    "p1_desc": "A comprehensive four-year journey into the linguistic miracles of the Holy Quran, blending classical grammar with modern pedagogy.",
+    "p1_cta": "Learn More",
+    "p2_title": "Community Circles",
+    "p2_desc": "Weekly gatherings for spiritual growth, fellowship, and mentorship in a relaxed and welcoming environment.",
+    "p2_cta": "Join the Circle",
+    "p3_title": "Digital Platform",
+    "p3_desc": "On-demand access to our entire library of lectures and structured courses from anywhere in the world.",
+    "p3_cta": "Access Portal",
+    "p4_title": "Global Mentorship",
+    "p4_desc": "Connect with leading scholars and academic professionals for personalized guidance on your educational path.",
+    "p4_cta": "Apply Now"
+  },
+  "donate": {
+    "eyebrow": "Support Our Mission",
+    "headline": "Preserve Sacred Knowledge for Future Generations",
+    "subtext": "Your contribution helps us provide scholarships, expand our digital infrastructure, and ensure authentic Islamic education remains accessible to all.",
+    "cta": "Donate Now"
+  },
+  "stats": {
+    "masjids": "Masjids Built",
+    "students": "Students Enrolled",
+    "courses": "Educational Courses"
+  },
+  "footer": {
+    "tagline": "A modern sanctuary dedicated to the preservation of Islamic heritage through authentic scholarship and contemporary excellence.",
+    "quick_links": "Quick Links",
+    "contact": "Contact & Social",
+    "address": "Hijaz Square, Knowledge City, Indonesia",
+    "email": "contact@markazalhijaz.org",
+    "copyright": "© 2024 Markaz Al Hijaz. Preserving Heritage, Inspiring Future.",
+    "link_programs": "Programs",
+    "link_community": "Community",
+    "link_about": "About Us",
+    "link_donate": "Support Our Mission"
+  }
+}

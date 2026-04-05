@@ -1,14 +1,6 @@
-import "./globals.css";
-
-export const metadata = {
-  title: "Hijaz",
-  description: "A Next.js app we are building step by step.",
-};
-
+// Root layout — minimal shell.
+// The real html/body/lang/dir are set in app/[locale]/layout.js
+// MantineProvider is included there too via the locale layout.
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+  return children;
 }
