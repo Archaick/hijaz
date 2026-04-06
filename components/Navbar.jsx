@@ -39,7 +39,7 @@ export default function Navbar() {
     // Replace /currentLocale with /newLocale in path
     const segments = pathname.split('/');
     segments[1] = newLocale;
-    router.push(segments.join('/') || `/${newLocale}`);
+    router.push(segments.join('/') || `/${newLocale}`, { scroll: false });
     close();
   };
 

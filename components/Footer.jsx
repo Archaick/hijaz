@@ -27,43 +27,61 @@ export default function Footer() {
         <Grid gutter={{ base: 'xl', md: '4rem' }} mb={48}>
           {/* Brand column */}
           <Grid.Col span={{ base: 12, md: 5 }}>
-            <Text
-              mb="md"
-              style={{
-                fontFamily: 'var(--font-arabic)',
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#fff',
-              }}
-            >
-              مركز الحجاز
-            </Text>
-            <Text
-              size="sm"
-              style={{
-                color: 'rgba(255,255,255,0.55)',
-                lineHeight: 1.75,
-                maxWidth: 320,
-                fontWeight: 300,
-              }}
-            >
-              {t('tagline')}
-            </Text>
+            <Box mb="xl">
+              <img 
+                src="/ahu-logo.png" 
+                alt="Madinatul Hijaz Logo" 
+                style={{ 
+                  height: '80px', 
+                  objectFit: 'contain',
+                  marginBottom: '1.25rem'
+                }} 
+              />
+              
+              <Text
+                size="sm"
+                style={{
+                  color: 'rgba(255,255,255,0.7)',
+                  lineHeight: 1.7,
+                  fontWeight: 400,
+                  maxWidth: 400,
+                  marginBottom: '1.5rem'
+                }}
+              >
+                {t('description')}
+              </Text>
 
-            {/* Gold accent bar */}
-            <Box
-              mt="lg"
-              style={{
-                width: 48,
-                height: 3,
-                background: 'var(--color-secondary)',
-                borderRadius: 2,
-              }}
-            />
+              <Box pt="md" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <Text
+                  size="xs"
+                  style={{
+                    color: 'var(--color-secondary)',
+                    lineHeight: 1.5,
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    marginBottom: 4
+                  }}
+                >
+                  {t('registered_under')}
+                </Text>
+                <Text
+                  size="xs"
+                  style={{
+                    color: 'rgba(255,255,255,0.5)',
+                    lineHeight: 1.6,
+                    fontWeight: 400,
+                  }}
+                >
+                  {t('registration_org')}<br />
+                  {t('registration_ministry')}
+                </Text>
+              </Box>
+            </Box>
           </Grid.Col>
 
           {/* Quick Links */}
-          <Grid.Col span={{ base: 6, md: 3 }}>
+          <Grid.Col span={{ base: 6, md: 2 }}>
             <Text
               size="xs"
               fw={600}

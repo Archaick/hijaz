@@ -51,7 +51,10 @@
     "courses": "Educational Courses"
   },
   "footer": {
-    "tagline": "A modern sanctuary dedicated to the preservation of Islamic heritage through authentic scholarship and contemporary excellence.",
+    "description": "Yayasan Madinatul Hijaz Jakarta is a nonprofit organization dedicated to serving the community and strengthening Islamic values through meaningful social engagement.",
+    "registered_under": "Registered under",
+    "registration_org": "Yayasan Madinatul Hijaz Jakarta",
+    "registration_ministry": "Ministry of Law and Human Rights of the Republic of Indonesia",
     "quick_links": "Quick Links",
     "contact": "Contact & Social",
     "address": "Hijaz Square, Knowledge City, Indonesia",
