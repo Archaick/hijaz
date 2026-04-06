@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, SimpleGrid, Text, Box, Paper, ThemeIcon, useMantineColorScheme } from '@mantine/core';
-import { IconBuildingMosque, IconSchool, IconBook } from '@tabler/icons-react';
+import { IconBuildingMosque, IconSchool, IconGift } from '@tabler/icons-react';
 import CountUp from 'react-countup';
 import { useTranslations } from 'next-intl';
 
@@ -16,9 +16,9 @@ export default function Stats() {
   const iconBg = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 7, 23, 0.05)';
 
   const statsData = [
-    { value: 12, label: t('masjids'), icon: IconBuildingMosque, suffix: '+' },
-    { value: 1250, label: t('students'), icon: IconSchool, suffix: '+' },
-    { value: 48, label: t('courses'), icon: IconBook, suffix: '+' },
+    { value: 2, label: t('masjids'), icon: IconBuildingMosque, suffix: '' },
+    { value: 750, label: t('students'), icon: IconSchool, suffix: '+' },
+    { value: 1800, label: t('qurban'), icon: IconGift, suffix: '+' },
   ];
 
   return (
@@ -77,7 +77,6 @@ export default function Stats() {
                     end={stat.value} 
                     duration={2.5} 
                     enableScrollSpy 
-                    scrollSpyOnce
                   />
                   {stat.suffix}
                 </Text>

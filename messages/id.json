@@ -47,8 +47,8 @@
   },
   "stats": {
     "masjids": "Masjid Dibangun",
-    "students": "Siswa Terdaftar",
-    "courses": "Kursus Pendidikan"
+    "students": "Siswa Kursus Bahasa Arab",
+    "qurban": "Qurban Terdistribusi"
   },
   "footer": {
     "description": "Yayasan Madinatul Hijaz Jakarta adalah lembaga nirlaba yang berkomitmen berkontribusi bagi masyarakat melalui pelayanan sosial dan penguatan nilai-nilai keislaman.",
@@ -59,7 +59,7 @@
     "contact": "Kontak & Media Sosial",
     "address": "Hijaz Square, Kota Ilmu, Indonesia",
     "email": "contact@markazalhijaz.org",
-    "copyright": "© 2024 Markaz Al Hijaz. Melestarikan Warisan, Menginspirasi Masa Depan.",
+    "copyright": "© 2024 Markaz Al Hijaz.",
     "link_programs": "Program",
     "link_community": "Komunitas",
     "link_about": "Tentang Kami",

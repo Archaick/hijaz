@@ -128,12 +128,13 @@ export default function Hero() {
             position: 'absolute',
             bottom: '-40px',
             insetInlineStart: '50%',
-            transform: 'translateX(-50%)',
+            transform: 'translateX(calc(-50% * var(--mantine-direction-factor, 1)))',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: 6,
             opacity: 0.4,
+            zIndex: 20,
           }}
         >
           <Box

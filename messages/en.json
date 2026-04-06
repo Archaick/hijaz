@@ -47,8 +47,8 @@
   },
   "stats": {
     "masjids": "Masjids Built",
-    "students": "Students Enrolled",
-    "courses": "Educational Courses"
+    "students": "Students in Arabic Courses",
+    "qurban": "Qurban Distributed"
   },
   "footer": {
     "description": "Yayasan Madinatul Hijaz Jakarta is a nonprofit organization dedicated to serving the community and strengthening Islamic values through meaningful social engagement.",
@@ -59,7 +59,7 @@
     "contact": "Contact & Social",
     "address": "Hijaz Square, Knowledge City, Indonesia",
     "email": "contact@markazalhijaz.org",
-    "copyright": "© 2024 Markaz Al Hijaz. Preserving Heritage, Inspiring Future.",
+    "copyright": "© 2024 Markaz Al Hijaz.",
     "link_programs": "Programs",
     "link_community": "Community",
     "link_about": "About Us",
