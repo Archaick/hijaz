@@ -127,9 +127,9 @@ export default function Hero() {
 
       {/* Scroll indicator - Positioned relative to the whole Hero section */}
       <Box
+        className="scroll-indicator"
         style={{
           position: 'absolute',
-          bottom: '2.5rem', 
           insetInlineStart: '50%',
           transform: 'translateX(calc(-50% * var(--mantine-direction-factor, 1)))',
           display: 'flex',
@@ -162,6 +162,14 @@ export default function Hero() {
           />
         </Box>
         <style>{`
+          .scroll-indicator {
+            bottom: 6rem;
+          }
+          @media (max-width: 768px) {
+            .scroll-indicator {
+              bottom: 8rem !important;
+            }
+          }
           @keyframes scrollBounce {
             0%, 100% { transform: translateY(0); opacity: 1; }
             50% { transform: translateY(6px); opacity: 0.4; }
