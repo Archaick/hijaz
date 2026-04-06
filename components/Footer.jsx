@@ -1,16 +1,16 @@
 'use client';
-import { Container, Grid, Box, Text, Anchor, Group, Divider } from '@mantine/core';
-import { IconMapPin, IconMail } from '@tabler/icons-react';
+import { Container, Grid, Box, Text, Anchor, Group, Divider, Stack } from '@mantine/core';
+import { IconMail, IconPhone } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 export default function Footer() {
   const t = useTranslations('footer');
 
   const quickLinks = [
-    { label: t('link_programs'),  href: '#programs' },
+    { label: t('link_programs'), href: '#programs' },
     { label: t('link_community'), href: '#community' },
-    { label: t('link_about'),     href: '#about' },
-    { label: t('link_donate'),    href: '#donate' },
+    { label: t('link_about'), href: '#about' },
+    { label: t('link_donate'), href: '#donate' },
   ];
 
   return (
@@ -24,20 +24,20 @@ export default function Footer() {
       }}
     >
       <Container size="xl">
-        <Grid gutter={{ base: 'xl', md: '4rem' }} mb={48}>
+        <Grid gutter={{ base: 'xl', md: '6rem' }} mb={48} justify="center">
           {/* Brand column */}
-          <Grid.Col span={{ base: 12, md: 5 }}>
+          <Grid.Col span={{ base: 12, md: 4 }}>
             <Box mb="xl">
-              <img 
-                src="/ahu-logo.png" 
-                alt="Madinatul Hijaz Logo" 
-                style={{ 
-                  height: '80px', 
+              <img
+                src="/ahu-logo.png"
+                alt="Madinatul Hijaz Logo"
+                style={{
+                  height: '80px',
                   objectFit: 'contain',
                   marginBottom: '1.25rem'
-                }} 
+                }}
               />
-              
+
               <Text
                 size="sm"
                 style={{
@@ -116,34 +116,72 @@ export default function Footer() {
 
           {/* Contact */}
           <Grid.Col span={{ base: 6, md: 4 }}>
+            <Group gap="md" mb="xl" wrap="nowrap">
+              <img 
+                src="/logo.svg" 
+                alt="Markaz Al-Hijaz" 
+                style={{ 
+                  height: '52px', 
+                  objectFit: 'contain',
+                  filter: 'brightness(0) invert(1)' 
+                }} 
+              />
+              <Stack gap={0}>
+                <Text 
+                  fw={800} 
+                  style={{ 
+                    color: '#fff', 
+                    fontSize: '1.1rem', 
+                    letterSpacing: '0.02em',
+                    lineHeight: 1.2
+                  }}
+                >
+                  MARKAZ AL-HIJAZ
+                </Text>
+                <Text 
+                  style={{ 
+                    color: 'var(--color-secondary)', 
+                    fontFamily: 'var(--font-arabic)', 
+                    fontSize: '1rem',
+                    lineHeight: 1.2,
+                    marginTop: '2px'
+                  }}
+                >
+                  لتعليم القرآن واللغة العربية
+                </Text>
+              </Stack>
+            </Group>
+
             <Text
               size="xs"
               fw={600}
               tt="uppercase"
               ls="0.1em"
-              mb="lg"
+              mb="md"
               style={{ color: 'var(--color-secondary)' }}
             >
-              {t('contact')}
+              {t('contact_us')}
             </Text>
 
-            <Group gap="xs" mb="sm" align="flex-start">
-              <IconMapPin size={16} style={{ color: 'rgba(255,255,255,0.4)', flexShrink: 0, marginTop: 2 }} />
-              <Text size="sm" style={{ color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
-                {t('address')}
-              </Text>
-            </Group>
+            <Stack gap="xs">
+              <Group gap="xs" align="center">
+                <IconMail size={16} style={{ color: 'rgba(255,255,255,0.4)', flexShrink: 0 }} />
+                <Anchor
+                  href={`mailto:${t('email')}`}
+                  size="sm"
+                  style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontWeight: 300 }}
+                >
+                  {t('email')}
+                </Anchor>
+              </Group>
 
-            <Group gap="xs" align="center">
-              <IconMail size={16} style={{ color: 'rgba(255,255,255,0.4)', flexShrink: 0 }} />
-              <Anchor
-                href={`mailto:${t('email')}`}
-                size="sm"
-                style={{ color: 'rgba(255,255,255,0.65)', textDecoration: 'none', fontWeight: 300 }}
-              >
-                {t('email')}
-              </Anchor>
-            </Group>
+              <Group gap="xs" align="center">
+                <IconPhone size={16} style={{ color: 'rgba(255,255,255,0.4)', flexShrink: 0 }} />
+                <Text size="sm" style={{ color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}>
+                  {t('phone')}
+                </Text>
+              </Group>
+            </Stack>
           </Grid.Col>
         </Grid>
 
