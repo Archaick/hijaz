@@ -169,6 +169,35 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
+/* ─── Navbar Link Animations ───────────────────────────────────── */
+.nav-link-hover {
+  transition: color 0.3s ease !important;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-hover:hover {
+  color: var(--color-secondary) !important;
+}
+
+.nav-link-hover:hover::after {
+  width: 100%;
+}
+
+[dir='rtl'] .nav-link-hover::after {
+  left: auto;
+  right: 0;
+}
+
 /* ─── Scrollbar styling ────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }

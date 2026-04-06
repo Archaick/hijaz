@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {
   Group, Container, Text, Button, Burger,
   Drawer, Stack, Divider, Box, SegmentedControl,
+  useComputedColorScheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useTranslations, useLocale } from 'next-intl';
@@ -22,6 +23,11 @@ export default function Navbar() {
   const pathname = usePathname();
   const [opened, { toggle, close }] = useDisclosure(false);
   const [scrolled, setScrolled] = useState(false);
+  const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
+
+  // Use white elements at the top of the page in light mode (assuming dark hero) 
+  // or always in dark mode.
+  const useWhiteElements = computedColorScheme === 'dark' || !scrolled;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -54,28 +60,45 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 200,
-          transition: 'box-shadow 0.3s ease',
-          boxShadow: scrolled ? '0 2px 40px rgba(0,7,23,0.12)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(117,119,125,0.1)' : 'none',
+          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          paddingTop: scrolled ? '0.5rem' : '1.25rem',
+          paddingBottom: scrolled ? '0.5rem' : '1.25rem',
+          boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none',
+          backgroundColor: scrolled 
+            ? (computedColorScheme === 'dark' ? 'var(--mantine-color-body-95)' : '#ffffff') 
+            : 'transparent',
+          backdropFilter: scrolled && computedColorScheme === 'light' ? 'none' : 'blur(12px)',
+          WebkitBackdropFilter: scrolled && computedColorScheme === 'light' ? 'none' : 'blur(12px)',
+          borderBottom: scrolled ? '1px solid rgba(0, 0, 0, 0.05)' : 'none',
         }}
       >
-        <Container size="xl" py="sm">
+        <Container size="xl">
           <Group justify="space-between" align="center">
             {/* Logo */}
-            <Text
+            <Box
               component="a"
               href={`/${locale}`}
+              aria-label="Markaz Al Hijaz Home"
               style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--mantine-color-text)',
+                display: 'flex',
+                alignItems: 'center',
                 textDecoration: 'none',
-                letterSpacing: '-0.02em',
+                transition: 'transform 0.3s ease',
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.02)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             >
-              مركز الحجاز
-            </Text>
+              <img 
+                src="/logo.svg" 
+                alt="Markaz Al Hijaz Logo" 
+                style={{ 
+                  height: scrolled ? '40px' : '52px', 
+                  transition: 'all 0.4s ease',
+                  objectFit: 'contain',
+                  filter: useWhiteElements ? 'brightness(0) invert(1)' : 'none',
+                }} 
+              />
+            </Box>
 
             {/* Desktop nav */}
             <Group gap="xl" visibleFrom="md">
@@ -85,15 +108,15 @@ export default function Navbar() {
                   component="a"
                   href={link.href}
                   style={{
-                    fontSize: '0.9rem',
-                    fontWeight: 500,
-                    color: 'var(--mantine-color-text)',
+                    fontSize: '0.95rem',
+                    fontWeight: 600,
+                    color: useWhiteElements ? '#fff' : 'var(--mantine-color-text)',
                     textDecoration: 'none',
-                    opacity: 0.8,
-                    transition: 'opacity 0.2s',
+                    position: 'relative',
+                    padding: '8px 0',
+                    transition: 'all 0.3s ease',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.8')}
+                  className="nav-link-hover"
                 >
                   {link.label}
                 </Text>
@@ -115,9 +138,15 @@ export default function Navbar() {
                       fontWeight: 600,
                       fontSize: '0.7rem',
                       padding: '0 8px',
-                      background: locale === l.value ? 'var(--color-primary)' : 'transparent',
-                      color: locale === l.value ? '#fff' : 'var(--mantine-color-text)',
-                    }}
+                      padding: '0 8px',
+                      background: locale === l.value 
+                        ? 'var(--color-primary)' 
+                        : 'transparent',
+                      color: locale === l.value 
+                        ? '#fff' 
+                        : (useWhiteElements ? 'rgba(255,255,255,0.9)' : 'var(--mantine-color-text)'),
+                    border: !scrolled && locale !== l.value ? '1px solid rgba(255,255,255,0.3)' : 'none',
+                  }}
                     onClick={() => switchLocale(l.value)}
                   >
                     {l.label}
@@ -125,7 +154,13 @@ export default function Navbar() {
                 ))}
               </Group>
 
-              <ColorSchemeToggle />
+              <ColorSchemeToggle 
+                style={{ 
+                  color: useWhiteElements ? '#fff' : 'var(--mantine-color-text)',
+                  opacity: useWhiteElements ? 0.9 : 1,
+                  transition: 'all 0.3s ease'
+                }} 
+              />
 
               {/* Donate — desktop */}
               <Button
@@ -143,6 +178,7 @@ export default function Navbar() {
                 size="sm"
                 hiddenFrom="md"
                 aria-label="Open menu"
+                color={useWhiteElements ? '#fff' : 'var(--color-primary)'}
               />
             </Group>
           </Group>
@@ -154,9 +190,17 @@ export default function Navbar() {
         opened={opened}
         onClose={close}
         title={
-          <Text fw={700} style={{ fontFamily: 'var(--font-display)' }}>
-            مركز الحجاز
-          </Text>
+          <Box style={{ display: 'flex', alignItems: 'center' }}>
+            <img 
+              src="/logo.svg" 
+              alt="Markaz Al Hijaz Logo" 
+              style={{ 
+                height: '36px', 
+                objectFit: 'contain',
+                filter: computedColorScheme === 'dark' ? 'brightness(0) invert(1)' : 'none',
+              }} 
+            />
+          </Box>
         }
         position={locale === 'ar' ? 'right' : 'left'}
         size="xs"
