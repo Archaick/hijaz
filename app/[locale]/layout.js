@@ -5,8 +5,8 @@ import { routing } from '../../i18n/routing';
 import '../globals.css';
 
 const theme = createTheme({
-  fontFamily: 'Inter, system-ui, sans-serif',
-  headings: { fontFamily: 'Noto Serif, Georgia, serif' },
+  fontFamily: 'var(--font-body)',
+  headings: { fontFamily: 'var(--font-display)' },
   defaultRadius: 'md',
   components: {
     Button: { defaultProps: { radius: 'md' } },

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import '@mantine/core/styles.css';
 
 /* ─── Design Tokens ────────────────────────────────────────────── */
@@ -15,9 +15,9 @@
   --color-on-surface:       #001f2a;
   --color-outline-variant:  rgba(117, 119, 125, 0.15);
 
-  --font-display: 'Noto Serif', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
-  --font-arabic:  'Noto Naskh Arabic', 'Noto Serif', serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Outfit', sans-serif;
+  --font-arabic:  'Amiri', serif;
 
   --radius-sm:  4px;
   --radius-md:  8px;
@@ -97,9 +97,9 @@ body {
 /* ─── Typography Utilities ─────────────────────────────────────── */
 .display-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
@@ -121,7 +121,7 @@ body {
 
 .eyebrow-text {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;

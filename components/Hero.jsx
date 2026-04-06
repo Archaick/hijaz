@@ -17,6 +17,7 @@ export default function Hero() {
         position: 'relative',
         overflow: 'hidden',
         paddingTop: '80px',
+        paddingBottom: '12vh',
       }}
     >
       {/* Decorative radial glow — gold */}
@@ -87,13 +88,13 @@ export default function Hero() {
 
           {/* Subtext */}
           <Text
-            size="lg"
-            mb={48}
+            size="md"
+            mb={40}
             style={{
               color: 'rgba(255,255,255,0.72)',
-              maxWidth: 580,
-              lineHeight: 1.7,
-              fontWeight: 300,
+              maxWidth: 540,
+              lineHeight: 1.6,
+              fontWeight: 400,
             }}
           >
             {t('subtext')}
@@ -122,50 +123,51 @@ export default function Hero() {
           </Group>
         </Box>
 
-        {/* Scroll indicator */}
+      </Container>
+
+      {/* Scroll indicator - Positioned relative to the whole Hero section */}
+      <Box
+        style={{
+          position: 'absolute',
+          bottom: '2.5rem', 
+          insetInlineStart: '50%',
+          transform: 'translateX(calc(-50% * var(--mantine-direction-factor, 1)))',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 6,
+          opacity: 0.4,
+          zIndex: 20,
+        }}
+      >
         <Box
           style={{
-            position: 'absolute',
-            bottom: '-40px',
-            insetInlineStart: '50%',
-            transform: 'translateX(calc(-50% * var(--mantine-direction-factor, 1)))',
+            width: 20,
+            height: 32,
+            border: '1.5px solid rgba(255,255,255,0.4)',
+            borderRadius: 10,
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 6,
-            opacity: 0.4,
-            zIndex: 20,
+            justifyContent: 'center',
+            paddingTop: 4,
           }}
         >
           <Box
             style={{
-              width: 24,
-              height: 40,
-              border: '2px solid rgba(255,255,255,0.4)',
-              borderRadius: 12,
-              display: 'flex',
-              justifyContent: 'center',
-              paddingTop: 6,
+              width: 3,
+              height: 6,
+              background: '#fff',
+              borderRadius: 2,
+              animation: 'scrollBounce 1.8s ease-in-out infinite',
             }}
-          >
-            <Box
-              style={{
-                width: 4,
-                height: 8,
-                background: '#fff',
-                borderRadius: 2,
-                animation: 'scrollBounce 1.8s ease-in-out infinite',
-              }}
-            />
-          </Box>
-          <style>{`
-            @keyframes scrollBounce {
-              0%, 100% { transform: translateY(0); opacity: 1; }
-              50% { transform: translateY(8px); opacity: 0.4; }
-            }
-          `}</style>
+          />
         </Box>
-      </Container>
+        <style>{`
+          @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(6px); opacity: 0.4; }
+          }
+        `}</style>
+      </Box>
     </Box>
   );
 }

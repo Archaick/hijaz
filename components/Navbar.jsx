@@ -204,9 +204,10 @@ export default function Navbar() {
         }
         position={locale === 'ar' ? 'right' : 'left'}
         size="xs"
+        zIndex={3000}
         overlayProps={{ opacity: 0.4, blur: 4 }}
       >
-        <Stack>
+        <Stack pt="xl" px="md">
           {navLinks.map((link) => (
             <Text
               key={link.label}
