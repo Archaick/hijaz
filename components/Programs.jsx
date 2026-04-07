@@ -1,5 +1,5 @@
 'use client';
-import { Container, Grid, Box, Text, Title, Button, Badge } from '@mantine/core';
+import { Container, Grid, Box, Flex, Text, Title, Button, Badge } from '@mantine/core';
 import {
   IconBook2, IconUsers, IconDeviceLaptop, IconWorldPin,
 } from '@tabler/icons-react';
@@ -52,85 +52,87 @@ export default function Programs() {
                 borderRadius: 'var(--radius-lg)',
                 background: 'light-dark(rgba(255,255,255,0.7), rgba(17,32,53,0.6))',
                 border: '1px solid light-dark(rgba(0,0,0,0.05), rgba(255,255,255,0.05))',
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                gap: '2rem',
                 boxShadow: '0 8px 32px rgba(0,7,23,0.1)',
                 textDecoration: 'none',
                 color: 'inherit',
                 overflow: 'hidden',
                 position: 'relative',
-                backdropFilter: 'blur(12px)'
+                backdropFilter: 'blur(12px)',
+                display: 'block'
               }}
             >
-              <Box style={{ flex: 1, zIndex: 1 }}>
-                <Title
-                  order={3}
-                  mb="md"
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '2rem',
-                    fontWeight: 700,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {t('p1_title')}
-                </Title>
-                <Text size="lg" c="dimmed" mb="xl" style={{ lineHeight: 1.7, fontWeight: 300, maxWidth: 600 }}>
-                  {t('p1_desc')}
-                </Text>
-                <Button
-                  variant="subtle"
-                  size="md"
-                  className="nav-link-hover"
-                  style={{
-                    color: 'var(--color-secondary)',
-                    padding: '0',
-                    fontWeight: 600,
-                    pointerEvents: 'none'
-                  }}
-                  rightSection={<span style={{ fontSize: '1.2rem' }}>→</span>}
-                >
-                  {t('p1_cta')}
-                </Button>
-              </Box>
-
-              {/* Image container */}
-              <Box
-                style={{
-                  flex: 1,
-                  height: '100%',
-                  minHeight: 280,
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-                display={{ base: 'none', md: 'flex' }}
+              <Flex
+                direction={{ base: 'column-reverse', md: 'row' }}
+                align="center"
+                gap={{ base: '1rem', md: '3rem' }}
               >
+                <Box style={{ flex: 1, zIndex: 1, width: '100%' }}>
+                  <Title
+                    order={3}
+                    mb="md"
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '2rem',
+                      fontWeight: 700,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {t('p1_title')}
+                  </Title>
+                  <Text size="lg" c="dimmed" mb="xl" style={{ lineHeight: 1.7, fontWeight: 300, maxWidth: 600 }}>
+                    {t('p1_desc')}
+                  </Text>
+                  <Button
+                    variant="subtle"
+                    size="md"
+                    className="nav-link-hover"
+                    style={{
+                      color: 'var(--color-secondary)',
+                      padding: '0',
+                      fontWeight: 600,
+                      pointerEvents: 'none'
+                    }}
+                    rightSection={<span style={{ fontSize: '1.2rem' }}>→</span>}
+                  >
+                    {t('p1_cta')}
+                  </Button>
+                </Box>
+
+                {/* Image container */}
                 <Box
                   style={{
-                    position: 'absolute',
-                    width: '120%',
-                    height: '120%',
-                    background: 'radial-gradient(circle at center, rgba(249,195,64,0.1) 0%, transparent 60%)',
-                    zIndex: 0
-                  }}
-                />
-                <img 
-                  src="/tadarus.png" 
-                  alt="Markaz Tadarus" 
-                  style={{ 
+                    flex: 1,
+                    width: '100%',
+                    minHeight: 280,
                     position: 'relative',
-                    zIndex: 1,
-                    maxWidth: '100%', 
-                    maxHeight: '320px',
-                    objectFit: 'contain',
-                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25))'
-                  }} 
-                />
-              </Box>
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      width: '120%',
+                      height: '120%',
+                      background: 'radial-gradient(circle at center, rgba(249,195,64,0.1) 0%, transparent 60%)',
+                      zIndex: 0
+                    }}
+                  />
+                  <img 
+                    src="/tadarus.png" 
+                    alt="Markaz Tadarus" 
+                    style={{ 
+                      position: 'relative',
+                      zIndex: 1,
+                      width: '100%', 
+                      maxHeight: '320px',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))'
+                    }} 
+                  />
+                </Box>
+              </Flex>
             </Box>
           </Grid.Col>
 
