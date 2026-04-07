@@ -21,13 +21,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const titles = {
-    id: 'Markaz Al Hijaz — Sanctuary Modern untuk Ilmu Islam',
-    en: 'Markaz Al Hijaz — Modern Sanctuary for Islamic Knowledge',
-    ar: 'مركز الحجاز — ملاذٌ حديث لعلوم الإسلام',
+    id: 'Markaz Al Hijaz — Menguatkan Masyarakat dengan Nilai Islam',
+    en: 'Markaz Al Hijaz — Empowering Communities with Islamic Values',
+    ar: 'مركز الحجاز — تمكين المجتمعات بالقيم الإسلامية',
   };
   return {
     title: titles[locale] || titles.id,
-    description: 'Markaz Al Hijaz — an Islamic foundation in Indonesia dedicated to authentic scholarship.',
+    description: 'Markaz Al Hijaz — a nonprofit foundation dedicated to education, charity, and community initiatives across Indonesia.',
+    icons: {
+      icon: '/logo.svg',
+    },
   };
 }
 
