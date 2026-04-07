@@ -1,6 +1,7 @@
 'use client';
 import { Container, Title, Text, Button, Group, Box } from '@mantine/core';
 import { useTranslations } from 'next-intl';
+import FallingOrbs from './FallingOrbs';
 
 export default function Hero() {
   const t = useTranslations('hero');
@@ -20,32 +21,8 @@ export default function Hero() {
         paddingBottom: '12vh',
       }}
     >
-      {/* Decorative radial glow — gold */}
-      <Box
-        style={{
-          position: 'absolute',
-          top: '20%',
-          insetInlineEnd: '8%',
-          width: 'clamp(280px, 40vw, 560px)',
-          height: 'clamp(280px, 40vw, 560px)',
-          background: 'radial-gradient(circle, rgba(249,195,64,0.12) 0%, transparent 70%)',
-          borderRadius: '50%',
-          pointerEvents: 'none',
-        }}
-      />
-      {/* Decorative radial glow — teal */}
-      <Box
-        style={{
-          position: 'absolute',
-          bottom: '10%',
-          insetInlineStart: '5%',
-          width: 'clamp(200px, 30vw, 400px)',
-          height: 'clamp(200px, 30vw, 400px)',
-          background: 'radial-gradient(circle, rgba(46,139,87,0.10) 0%, transparent 70%)',
-          borderRadius: '50%',
-          pointerEvents: 'none',
-        }}
-      />
+      {/* Animated falling glowing orbs */}
+      <FallingOrbs />
 
       {/* Arabic calligraphic watermark */}
       <Box
