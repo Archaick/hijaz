@@ -16,7 +16,7 @@ export default function FallingOrbs() {
         isLetter,
         char: isLetter ? arabicLetters[Math.floor(Math.random() * arabicLetters.length)] : null,
         left: Math.random() * 100, // random horizontal start point (%)
-        delay: Math.random() * 15, // random start delay to stagger them
+        delay: -(Math.random() * 35), // NEGATIVE delay makes them appear instantly mid-fall!
         duration: 15 + Math.random() * 20, // gently float down (15 - 35 seconds)
         size: isLetter ? (1.5 + Math.random() * 2) : (2 + Math.random() * 4), // rem for letters, px for orbs
         blur: Math.random() > 0.4 ? (Math.random() * 3) : 0, // varying blur for depth
