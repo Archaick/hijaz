@@ -1,12 +1,11 @@
 'use client';
-import { Container, Grid, Box, Flex, Text, Title, Button, Badge } from '@mantine/core';
-import {
-  IconBook2, IconUsers, IconDeviceLaptop, IconWorldPin,
-} from '@tabler/icons-react';
+
+import { Container, Grid, Box, Flex, Text, Title, Button } from '@mantine/core';
+import { IconUsers, IconDeviceLaptop } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 const otherPrograms = [
-  { key: 'p2', icon: IconUsers,        color: 'var(--color-tertiary)' },
+  { key: 'p2', icon: IconUsers, color: 'var(--color-tertiary)' },
   { key: 'p3', icon: IconDeviceLaptop, color: '#6ab5e0' },
 ];
 
@@ -21,11 +20,10 @@ export default function Programs() {
       style={{
         background: 'light-dark(var(--color-surface-low), var(--color-primary))',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
       }}
     >
       <Container size="xl" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Header */}
         <Box mb={64} style={{ maxWidth: 640 }}>
           <Text className="eyebrow-text" mb="md">
             {t('eyebrow')}
@@ -38,9 +36,7 @@ export default function Programs() {
           </Text>
         </Box>
 
-        {/* Program cards */}
         <Grid gutter={{ base: 'md', md: 'xl' }}>
-          {/* Stretched Markaz Tadarus Box */}
           <Grid.Col span={12}>
             <Box
               component="a"
@@ -58,7 +54,7 @@ export default function Programs() {
                 overflow: 'hidden',
                 position: 'relative',
                 backdropFilter: 'blur(12px)',
-                display: 'block'
+                display: 'block',
               }}
             >
               <Flex
@@ -79,7 +75,12 @@ export default function Programs() {
                   >
                     {t('p1_title')}
                   </Title>
-                  <Text size="lg" c="dimmed" mb="xl" style={{ lineHeight: 1.7, fontWeight: 300, maxWidth: 600 }}>
+                  <Text
+                    size="lg"
+                    c="dimmed"
+                    mb="xl"
+                    style={{ lineHeight: 1.7, fontWeight: 300, maxWidth: 600 }}
+                  >
                     {t('p1_desc')}
                   </Text>
                   <Button
@@ -90,15 +91,14 @@ export default function Programs() {
                       color: 'var(--color-secondary)',
                       padding: '0',
                       fontWeight: 600,
-                      pointerEvents: 'none'
+                      pointerEvents: 'none',
                     }}
-                    rightSection={<span style={{ fontSize: '1.2rem' }}>→</span>}
+                    rightSection={<span style={{ fontSize: '1.2rem' }}>&rarr;</span>}
                   >
                     {t('p1_cta')}
                   </Button>
                 </Box>
 
-                {/* Image container */}
                 <Box
                   style={{
                     flex: 1,
@@ -115,28 +115,28 @@ export default function Programs() {
                       position: 'absolute',
                       width: '120%',
                       height: '120%',
-                      background: 'radial-gradient(circle at center, rgba(249,195,64,0.1) 0%, transparent 60%)',
-                      zIndex: 0
+                      background:
+                        'radial-gradient(circle at center, rgba(249,195,64,0.1) 0%, transparent 60%)',
+                      zIndex: 0,
                     }}
                   />
-                  <img 
-                    src="/tadarus.png" 
-                    alt="Markaz Tadarus" 
-                    style={{ 
+                  <img
+                    src="/tadarus.png"
+                    alt="Markaz Tadarus"
+                    style={{
                       position: 'relative',
                       zIndex: 1,
-                      width: '100%', 
+                      width: '100%',
                       maxHeight: '320px',
                       objectFit: 'contain',
-                      filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))'
-                    }} 
+                      filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))',
+                    }}
                   />
                 </Box>
               </Flex>
             </Box>
           </Grid.Col>
 
-          {/* Other program boxes */}
           {otherPrograms.map(({ key, icon: Icon, color }) => (
             <Grid.Col key={key} span={{ base: 12, sm: 6 }}>
               <Box
@@ -152,10 +152,10 @@ export default function Programs() {
                   gap: '1rem',
                   boxShadow: '0 8px 32px rgba(0,7,23,0.1)',
                   backdropFilter: 'blur(12px)',
-                  position: 'relative'
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
-                {/* Icon */}
                 <Box
                   style={{
                     width: 48,
@@ -167,6 +167,7 @@ export default function Programs() {
                     justifyContent: 'center',
                     color,
                     flexShrink: 0,
+                    zIndex: 1,
                   }}
                 >
                   <Icon size={24} stroke={1.75} />
@@ -194,7 +195,6 @@ export default function Programs() {
                   </Text>
                 </Box>
 
-                {/* CTA */}
                 <Button
                   variant="subtle"
                   size="sm"
@@ -206,12 +206,81 @@ export default function Programs() {
                     fontWeight: 600,
                     width: 'fit-content',
                     justifyContent: 'flex-start',
-                    zIndex: 1
+                    zIndex: 1,
+                    pointerEvents: key === 'p3' ? 'none' : 'auto',
                   }}
-                  rightSection={<span style={{ fontSize: '1rem' }}>→</span>}
+                  rightSection={
+                    <span style={{ fontSize: '1rem' }}>
+                      {key === 'p3' ? '\u231B' : '\u2192'}
+                    </span>
+                  }
                 >
                   {t(`${key}_cta`)}
                 </Button>
+
+                {key === 'p3' && (
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      overflow: 'hidden',
+                      pointerEvents: 'none',
+                      zIndex: 0,
+                      userSelect: 'none',
+                    }}
+                    >
+                      <Box
+                        style={{
+                          position: 'absolute',
+                          top: '1.15rem',
+                          right: '1.15rem',
+                          width: 92,
+                          height: 92,
+                          borderTop: '1.5px solid light-dark(rgba(17,32,53,0.16), rgba(255,255,255,0.12))',
+                          borderRight: '1.5px solid light-dark(rgba(17,32,53,0.16), rgba(255,255,255,0.12))',
+                          borderTopRightRadius: 28,
+                          opacity: 0.9,
+                        }}
+                      />
+                      <Box
+                        style={{
+                          position: 'absolute',
+                          top: '1.55rem',
+                          right: '1.55rem',
+                          width: 8,
+                          height: 8,
+                          borderRadius: '999px',
+                          background: 'rgba(249, 195, 64, 0.82)',
+                          boxShadow: '0 0 0 6px light-dark(rgba(249,195,64,0.10), rgba(249,195,64,0.06))',
+                        }}
+                      />
+                      <Box
+                        style={{
+                          position: 'absolute',
+                          top: '2rem',
+                          right: '2.7rem',
+                          width: 6,
+                          height: 6,
+                          borderRadius: '999px',
+                          background: 'light-dark(rgba(17,32,53,0.18), rgba(255,255,255,0.16))',
+                        }}
+                      />
+                      <Box
+                        style={{
+                          position: 'absolute',
+                          top: '2.95rem',
+                          right: '1.7rem',
+                          width: 26,
+                          height: 2,
+                          borderRadius: 999,
+                          background: 'light-dark(rgba(17,32,53,0.12), rgba(255,255,255,0.10))',
+                          transform: 'rotate(-38deg)',
+                          transformOrigin: 'right center',
+                        }}
+                      />
+
+                    </Box>
+                )}
               </Box>
             </Grid.Col>
           ))}
