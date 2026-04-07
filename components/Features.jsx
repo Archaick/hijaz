@@ -1,17 +1,17 @@
 'use client';
 import { Container, Grid, Box, Text, Title, ThemeIcon } from '@mantine/core';
-import { IconCheck, IconBrain } from '@tabler/icons-react';
+import { IconEye, IconTarget } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 const pillars = [
   {
     key: 'pillar1',
-    icon: IconCheck,
+    icon: IconEye,
     color: 'var(--color-secondary)',
   },
   {
     key: 'pillar2',
-    icon: IconBrain,
+    icon: IconTarget,
     color: 'var(--color-tertiary)',
   },
 ];
