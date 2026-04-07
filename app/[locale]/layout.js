@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
     title: titles[locale] || titles.id,
     description: 'Markaz Al Hijaz — a nonprofit foundation dedicated to education, charity, and community initiatives across Indonesia.',
     icons: {
-      icon: '/logo.svg',
+      icon: '/favicon.svg',
     },
   };
 }
