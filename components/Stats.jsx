@@ -1,7 +1,6 @@
 'use client';
 
 import { Container, SimpleGrid, Text, Box, Paper, ThemeIcon, useMantineColorScheme } from '@mantine/core';
-import { IconBuildingMosque, IconSchool, IconGift } from '@tabler/icons-react';
 import CountUp from 'react-countup';
 import { useTranslations } from 'next-intl';
 
@@ -16,9 +15,9 @@ export default function Stats() {
   const iconBg = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 7, 23, 0.05)';
 
   const statsData = [
-    { value: 2, label: t('masjids'), icon: IconBuildingMosque, suffix: '' },
-    { value: 750, label: t('students'), icon: IconSchool, suffix: '+' },
-    { value: 1800, label: t('qurban'), icon: IconGift, suffix: '+' },
+    { value: 2, label: t('masjids'), image: '/programs/masjid.png', suffix: '' },
+    { value: 750, label: t('students'), image: '/programs/students.png', suffix: '+' },
+    { value: 1800, label: t('qurban'), image: '/programs/sheep.png', suffix: '+' },
   ];
 
   return (
@@ -60,7 +59,15 @@ export default function Stats() {
                   color: iconColor 
                 }}
               >
-                <stat.icon size={32} stroke={1.5} />
+                <img
+                  src={stat.image}
+                  alt={stat.label}
+                  style={{
+                    width: 34,
+                    height: 34,
+                    objectFit: 'contain',
+                  }}
+                />
               </ThemeIcon>
 
               <div>
