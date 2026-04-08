@@ -2,6 +2,7 @@ import { ColorSchemeScript, MantineProvider, mantineHtmlProps, createTheme } fro
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '../../i18n/routing';
+import FirebaseAnalytics from '../../components/FirebaseAnalytics';
 import '../globals.css';
 
 const theme = createTheme({
@@ -49,6 +50,7 @@ export default async function LocaleLayout({ children, params }) {
         <MantineProvider theme={theme} defaultColorScheme="auto">
           <NextIntlClientProvider messages={messages}>
             {children}
+            <FirebaseAnalytics />
           </NextIntlClientProvider>
         </MantineProvider>
       </body>
