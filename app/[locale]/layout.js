@@ -5,6 +5,9 @@ import { routing } from '../../i18n/routing';
 import FirebaseAnalytics from '../../components/FirebaseAnalytics';
 import '../globals.css';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://markazalhijaz.org';
+const previewImage = '/tadarus.png';
+
 const theme = createTheme({
   fontFamily: 'var(--font-body)',
   headings: { fontFamily: 'var(--font-display)' },
@@ -26,11 +29,35 @@ export async function generateMetadata({ params }) {
     en: 'Markaz Al Hijaz — Empowering Communities with Islamic Values',
     ar: 'مركز الحجاز — تمكين المجتمعات بالقيم الإسلامية',
   };
+  const title = titles[locale] || titles.id;
+  const description = 'Markaz Al Hijaz — a nonprofit foundation dedicated to education, charity, and community initiatives across Indonesia.';
+
   return {
-    title: titles[locale] || titles.id,
-    description: 'Markaz Al Hijaz — a nonprofit foundation dedicated to education, charity, and community initiatives across Indonesia.',
+    metadataBase: new URL(siteUrl),
+    title,
+    description,
     icons: {
       icon: '/favicon.svg',
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}`,
+      siteName: 'Markaz Al Hijaz',
+      locale,
+      type: 'website',
+      images: [
+        {
+          url: previewImage,
+          alt: 'Markaz Al Hijaz preview image',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [previewImage],
     },
   };
 }
