@@ -29,5 +29,8 @@
         "type": 302
       }
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
   }
 }
