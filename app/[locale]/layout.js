@@ -1,6 +1,7 @@
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps, createTheme } from '@mantine/core';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import { routing } from '../../i18n/routing';
 import FirebaseAnalytics from '../../components/FirebaseAnalytics';
 import '../globals.css';
@@ -22,8 +23,12 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }) {
   const { locale } = await params;
+  if (!routing.locales.includes(locale)) notFound();
+
   const titles = {
     id: 'Markaz Al Hijaz — Menguatkan Masyarakat dengan Nilai Islam',
     en: 'Markaz Al Hijaz — Empowering Communities with Islamic Values',
@@ -64,6 +69,8 @@ export async function generateMetadata({ params }) {
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
+  if (!routing.locales.includes(locale)) notFound();
+  
   setRequestLocale(locale);
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';

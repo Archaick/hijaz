@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Container, Title, Text, Button, Center, Loader, Stack } from '@mantine/core';
+import { Container, Title, Text, Button, Center, Loader, Stack, MantineProvider } from '@mantine/core';
 import { db } from '../lib/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
@@ -31,7 +31,7 @@ export default function NotFound() {
       } catch (error) {
         console.error("Error checking for redirect:", error);
       }
-      
+
       setLoading(false);
     }
 
@@ -40,27 +40,39 @@ export default function NotFound() {
 
   if (loading || isRedirecting) {
     return (
-      <Center style={{ height: '100vh', backgroundColor: 'var(--mantine-color-body)' }}>
-        <Stack align="center" gap="md">
-          <Loader color="var(--color-primary)" size="lg" />
-          {isRedirecting && <Text fw={500}>Redirecting...</Text>}
-        </Stack>
-      </Center>
+      <html lang="en">
+        <body>
+          <MantineProvider defaultColorScheme="auto">
+            <Center style={{ height: '100vh', backgroundColor: 'var(--mantine-color-body)' }}>
+              <Stack align="center" gap="md">
+                <Loader color="var(--color-primary)" size="lg" />
+                {isRedirecting && <Text fw={500}>Redirecting...</Text>}
+              </Stack>
+            </Center>
+          </MantineProvider>
+        </body>
+      </html>
     );
   }
 
   return (
-    <Center style={{ height: '100vh', backgroundColor: 'var(--mantine-color-body)' }}>
-      <Stack align="center" gap="md">
-        <Title order={1} style={{ fontSize: '4rem', color: 'var(--color-primary)' }}>404</Title>
-        <Title order={2}>Page Not Found</Title>
-        <Text c="dimmed" ta="center" maw={400}>
-          The page you are looking for doesn't exist or has been moved.
-        </Text>
-        <Button component="a" href="/" className="btn-gold" mt="md">
-          Back to Home
-        </Button>
-      </Stack>
-    </Center>
+    <html lang="en">
+      <body>
+        <MantineProvider defaultColorScheme="auto">
+          <Center style={{ height: '100vh', backgroundColor: 'var(--mantine-color-body)' }}>
+            <Stack align="center" gap="md">
+              <Title order={1} style={{ fontSize: '4rem', color: 'var(--color-primary)' }}>404</Title>
+              <Title order={2}>Page Not Found</Title>
+              <Text c="dimmed" ta="center" maw={400}>
+                The page you are looking for doesn't exist or has been moved.
+              </Text>
+              <Button component="a" href="/" className="btn-gold" mt="md">
+                Back to Home
+              </Button>
+            </Stack>
+          </Center>
+        </MantineProvider>
+      </body>
+    </html>
   );
 }
