@@ -119,7 +119,7 @@ export default function RedirectsManager() {
                   <Table.Tr key={route.id}>
                     <Table.Td>
                       <Group gap="xs">
-                        <Text fw={500} size="sm" c="white">{route.source}</Text>
+                        <Text fw={500} size="sm" c="white">markazalhijaz.org{route.source}</Text>
                         <CopyButton value={fullLink} timeout={2000}>
                           {({ copied, copy }) => (
                             <Tooltip label={copied ? 'Copied' : 'Copy Full Link'} withArrow position="right">
