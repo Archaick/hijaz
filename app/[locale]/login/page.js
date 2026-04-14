@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Container, Paper, Title, TextInput, PasswordInput, Button, Text } from '@mantine/core';
+import { Container, Paper, Title, TextInput, PasswordInput, Button, Text, Box } from '@mantine/core';
 import { auth } from '../../../lib/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import FallingOrbs from '../../../components/FallingOrbs';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -32,11 +33,20 @@ export default function LoginPage() {
   };
 
   return (
-    <Container size="xs" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
-      <Paper radius="md" p="xl" withBorder className="glass" w="100%">
-        <Title order={2} ta="center" mt="md" mb="xl">
-          Internal Access
-        </Title>
+    <Box style={{ 
+      position: 'relative', 
+      minHeight: '100vh', 
+      overflow: 'hidden',
+      background: 'linear-gradient(135deg, #020b1e 0%, #0a1936 100%)',
+      color: '#fff'
+    }}>
+      <FallingOrbs />
+      
+      <Container size="xs" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 10 }}>
+        <Paper radius="md" p="xl" withBorder className="glass" w="100%" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+          <Title order={2} ta="center" mt="md" mb="xl" c="white">
+            Internal Access
+          </Title>
 
         <form onSubmit={handleLogin}>
           <TextInput
@@ -65,7 +75,8 @@ export default function LoginPage() {
             Sign In
           </Button>
         </form>
-      </Paper>
-    </Container>
+        </Paper>
+      </Container>
+    </Box>
   );
 }

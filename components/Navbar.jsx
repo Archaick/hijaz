@@ -47,7 +47,7 @@ export default function Navbar() {
     { label: t('programs'), href: '#programs' },
     { label: t('community'), href: '#community' },
     { label: t('about'), href: '#about' },
-    { label: 'Internal', href: `/${locale}/internal` },
+    { label: t('internals'), href: `/${locale}/internal` },
   ];
 
   return (

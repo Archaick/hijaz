@@ -66,8 +66,8 @@ export default function RedirectsManager() {
 
   return (
     <Stack gap="xl">
-      <Paper p="md" withBorder radius="md" bg="var(--mantine-color-body)">
-        <Text fw={600} mb="md">Create New Redirect</Text>
+      <Paper p="md" withBorder radius="md" className="glass" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+        <Text fw={600} mb="md" c="white">Create New Redirect</Text>
         <form onSubmit={handleAddRedirect}>
           <Group align="flex-end">
             <TextInput
@@ -96,9 +96,9 @@ export default function RedirectsManager() {
         </form>
       </Paper>
 
-      <Paper p={0} withBorder radius="md" style={{ overflow: 'hidden' }}>
-        <Table verticalSpacing="sm" striped highlightOnHover>
-          <Table.Thead bg="var(--mantine-color-dark-filled)">
+      <Paper p={0} withBorder radius="md" className="glass" style={{ overflow: 'hidden', borderColor: 'rgba(255,255,255,0.1)' }}>
+        <Table verticalSpacing="sm" striped highlightOnHover style={{ color: 'white' }}>
+          <Table.Thead bg="rgba(0,0,0,0.3)">
             <Table.Tr>
               <Table.Th>Generated Link</Table.Th>
               <Table.Th>Destination</Table.Th>
@@ -119,7 +119,7 @@ export default function RedirectsManager() {
                   <Table.Tr key={route.id}>
                     <Table.Td>
                       <Group gap="xs">
-                        <Text fw={500} size="sm">{route.source}</Text>
+                        <Text fw={500} size="sm" c="white">{route.source}</Text>
                         <CopyButton value={fullLink} timeout={2000}>
                           {({ copied, copy }) => (
                             <Tooltip label={copied ? 'Copied' : 'Copy Full Link'} withArrow position="right">
@@ -133,7 +133,7 @@ export default function RedirectsManager() {
                     </Table.Td>
                     <Table.Td>
                       <Group gap="xs" wrap="nowrap">
-                        <Text size="sm" truncate style={{ maxWidth: 300 }}>
+                        <Text size="sm" truncate style={{ maxWidth: 300 }} c="rgba(255,255,255,0.7)">
                           {route.destination}
                         </Text>
                         <ActionIcon 
