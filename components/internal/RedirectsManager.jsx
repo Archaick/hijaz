@@ -41,12 +41,17 @@ export default function RedirectsManager() {
   const [reloadKey, setReloadKey] = useState(0);
   const cursorsRef = useRef({ 1: null });
   const [debouncedFilter] = useDebouncedValue(filter, 350);
-  const normalizedFilter = useMemo(() => normalizePath(debouncedFilter), [debouncedFilter]);
+  const filterTerm = useMemo(() => debouncedFilter.trim().toLowerCase(), [debouncedFilter]);
+  const isPrefixSearch = filterTerm.startsWith('/');
+  const normalizedFilter = useMemo(
+    () => (isPrefixSearch ? normalizePath(filterTerm) : ''),
+    [filterTerm, isPrefixSearch]
+  );
 
   useEffect(() => {
     cursorsRef.current = { 1: null };
     setPage(1);
-  }, [normalizedFilter]);
+  }, [filterTerm]);
 
   useEffect(() => {
     let isMounted = true;
@@ -88,8 +93,15 @@ export default function RedirectsManager() {
         const hasMore = docs.length > PAGE_SIZE;
         const visibleDocs = hasMore ? docs.slice(0, PAGE_SIZE) : docs;
         const data = visibleDocs.map((item) => ({ id: item.id, ...item.data() }));
+        const filteredData = !filterTerm || isPrefixSearch
+          ? data
+          : data.filter((item) => {
+              const sourceValue = (item.source ?? '').toLowerCase();
+              const destinationValue = (item.destination ?? '').toLowerCase();
+              return sourceValue.includes(filterTerm) || destinationValue.includes(filterTerm);
+            });
 
-        setRedirects(data);
+        setRedirects(filteredData);
         setHasNextPage(hasMore);
 
         if (hasMore && visibleDocs.length > 0) {
@@ -115,7 +127,7 @@ export default function RedirectsManager() {
     return () => {
       isMounted = false;
     };
-  }, [page, normalizedFilter, reloadKey]);
+  }, [page, normalizedFilter, filterTerm, isPrefixSearch, reloadKey]);
 
   const resetToFirstPage = () => {
     cursorsRef.current = { 1: null };
@@ -199,7 +211,7 @@ export default function RedirectsManager() {
           <TextInput
             label="Filter by Path"
             placeholder="/qurban"
-            description="Prefix match only (server-side)"
+            description="Use /path for server-side prefix. Plain text filters current page."
             value={filter}
             onChange={(e) => setFilter(e.currentTarget.value)}
             style={{ maxWidth: 340 }}
@@ -225,7 +237,9 @@ export default function RedirectsManager() {
             ) : redirects.length === 0 ? (
               <Table.Tr>
                 <Table.Td colSpan={4} ta="center" py="xl">
-                  <Text c="dimmed">No redirects found for this filter.</Text>
+                  <Text c="dimmed">
+                    {isPrefixSearch ? 'No redirects found for this prefix.' : 'No matches on this page.'}
+                  </Text>
                 </Table.Td>
               </Table.Tr>
             ) : (
@@ -282,7 +296,11 @@ export default function RedirectsManager() {
 
         <Group justify="space-between" p="md" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <Text size="sm" c="rgba(255,255,255,0.7)">
-            {normalizedFilter ? `Filter: ${normalizedFilter}` : 'Showing latest redirects'}
+            {normalizedFilter
+              ? `Prefix filter: ${normalizedFilter}`
+              : filterTerm
+                ? `Keyword filter (current page): ${filterTerm}`
+                : 'Showing latest redirects'}
           </Text>
           <Group gap="xs">
             <Button
