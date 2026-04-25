@@ -17,9 +17,16 @@ export default function InternalDashboard() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
+      const isAllowedUser =
+        currentUser?.email?.toLowerCase() === 'info@markazalhijaz.org';
+
+      if (isAllowedUser) {
         setUser(currentUser);
       } else {
+        setUser(null);
+        if (currentUser) {
+          signOut(auth).catch(() => {});
+        }
         router.push(`/${locale}/login`);
       }
       setLoading(false);

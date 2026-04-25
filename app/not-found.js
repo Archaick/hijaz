@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Container, Title, Text, Button, Center, Loader, Stack, MantineProvider } from '@mantine/core';
 import { db } from '../lib/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, limit } from 'firebase/firestore';
 
 export default function NotFound() {
   const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ export default function NotFound() {
       }
 
       try {
-        const q = query(collection(db, 'redirects'), where('source', '==', currentPath));
+        const q = query(collection(db, 'redirects'), where('source', '==', currentPath), limit(1));
         const querySnapshot = await getDocs(q);
 
         if (!querySnapshot.empty) {
